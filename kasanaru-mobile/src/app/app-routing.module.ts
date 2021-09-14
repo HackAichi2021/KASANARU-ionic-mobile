@@ -7,18 +7,6 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: 'user',
-    loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
-  },
-  {
-    path: 'achievement',
-    loadChildren: () => import('./achievement/achievement.module').then( m => m.AchievementPageModule)
-  },
-  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
