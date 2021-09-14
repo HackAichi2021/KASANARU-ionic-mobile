@@ -7,45 +7,50 @@
         </ion-title>
     </ion-toolbar>
 </ion-header>
-  
+
 <ion-content>
     <div class="w-full p-4">
-        <h2 class="text-xl mb-4">○○さんようこそ</h2>     
+        <h2 class="text-xl mb-4">○○さんようこそ</h2>
         <div class="card card-side bordered shadow-md">
             <figure>
                 <div class="w-32 h-32 flex flex-wrap justify-center items-center bg-blue-500">
                     <p class="text-4xl p-8 font-black text-white">100</p>
                 </div>
-            </figure> 
+            </figure>
             <div class="card-body pb-2">
                 <h2 class="card-title mb-0">あなたが減らした傘の本数
                 </h2>
                 <a class="bg-transparent text-xs pt-2 text-right text-primary" routerLink="/achievement">もっと見る</a>
             </div>
         </div>
+
         <h1 class="mt-4 mb-4 text-3xl font-bold">傘の貸し借り</h1>
         <hr class="mt-4 mb-4">
-        <div class="card card-side bg-primary text-accent-content shadow-md mt-4 mb-4">
-            <hr class="mb-2 bg-white">
-            <figure>
-                <div class="w-32 h-32 flex flex-wrap justify-center items-center">
-                    <ion-icon name="umbrella-outline" class="text-6xl p-4"></ion-icon>
+        <a routerLink="./borrow">
+            <div class="card card-side bg-primary text-accent-content shadow-md mt-4 mb-4">
+                <hr class="mb-2 bg-white">
+                <figure>
+                    <div class="w-32 h-32 flex flex-wrap justify-center items-center">
+                        <ion-icon name="umbrella-outline" class="text-6xl p-4"></ion-icon>
+                    </div>
+                </figure>
+                <div class="card-body flex flex-wrap justify-center items-end">
+                    <h2 class="card-title text-4xl m-0">借りる</h2>
                 </div>
-            </figure> 
-            <div class="card-body flex flex-wrap justify-center items-end">
-                <h2 class="card-title text-4xl m-0">借りる</h2>
             </div>
-        </div>
-        <div class="card card-side bg-secondary text-accent-content shadow-md mt-4 mb-4">
-            <hr class="mb-2 bg-white">
-            <figure>
-                <div class="w-32 h-32 flex flex-wrap justify-center items-center">
-                    <ion-icon name="umbrella-outline" class="text-6xl p-4"></ion-icon>
+        </a>
+        <a routerLink="./lend">
+            <div class="card card-side bg-secondary text-accent-content shadow-md mt-4 mb-4">
+                <hr class="mb-2 bg-white">
+                <figure>
+                    <div class="w-32 h-32 flex flex-wrap justify-center items-center">
+                        <ion-icon name="umbrella-outline" class="text-6xl p-4"></ion-icon>
+                    </div>
+                </figure>
+                <div class="card-body flex flex-wrap justify-center items-end">
+                    <h2 class="card-title text-4xl m-0">貸す</h2>
                 </div>
-            </figure> 
-            <div class="card-body flex flex-wrap justify-center items-end">
-                <h2 class="card-title text-4xl m-0">貸す</h2>
             </div>
-        </div>
+        </a>
     </div>
-</ion-content>  
+</ion-content>
