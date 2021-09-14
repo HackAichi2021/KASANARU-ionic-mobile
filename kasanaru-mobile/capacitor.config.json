@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "kasanaru-mobile",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
