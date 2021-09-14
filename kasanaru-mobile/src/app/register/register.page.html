@@ -1,9 +1,27 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+    <div class="container mx-auto max-w-lg">
+        <div class="w-full p-8">
+            <div class="card shadow-lg mt-4">
+                <div class="card-body">
+                    <img src="../../assets/splash-banner/KASANARU-banner.png" class="w-60 m-auto p-1">
+                    <h1 class="text-3xl font-bold text-center">ユーザ登録</h1>
+                    <form action="/login" method="post">
+                        <p class="pt-2">Email</p>
+                        <input type="text" name="mail" placeholder="email" class="input input-bordered w-full">
+                        <p class="pt-2">ユーザ名</p>
+                        <input type="text" placeholder="ユーザ名" name="password" class="input input-bordered w-full">
+                        <p class="pt-2">年齢</p>
+                        <input type="text" placeholder="年齢" name="password" class="input input-bordered w-full">
+                        <p class="pt-2">パスワード</p>
+                        <input type="password" placeholder="パスワード" name="password" class="input input-bordered w-full">
+                        <br>
+                        <div class="justify-end card-actions space-x-2">
+                            <button type="submit" class="btn btn-secondary p-0 m-0 mt-2 w-full">新規登録</button>
+                            <button class="btn btn-primary p-0 m-0 mt-4 w-full" routerLink="/login">ログイン</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </ion-content>
