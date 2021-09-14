@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage
+  },
+  {
+    path: 'lend',
+    loadChildren: () => import('./lend/lend.module').then( m => m.LendPageModule)
+  },
+  {
+    path: 'borrow',
+    loadChildren: () => import('./borrow/borrow.module').then( m => m.BorrowPageModule)
   }
 ];
 
