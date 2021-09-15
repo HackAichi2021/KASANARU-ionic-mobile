@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
   }
 
   authData(): void{
-    this.httpclient.post<User>(`${this.basedUrl}api/user/register}`, this.user).subscribe(res => {
+    this.httpclient.post<User>(`${this.basedUrl}api/user/register`, this.user).subscribe(res => {
       console.log(res);
     });
   }
