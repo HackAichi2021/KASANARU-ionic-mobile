@@ -61,10 +61,19 @@ export class DestinationMapComponent implements OnInit {
     this.mapService
       .nearbySearch(placeService, request)
       .then(results => {
-        this.distLocation = results[1].name
+        this.distLocation = this.typeCheck(results)
       })
       .catch((e) => {
         console.log(e);
       });
+  }
+
+  typeCheck(results: google.maps.places.PlaceResult[]) {
+    const stations = results.filter(result => result.types.includes('transit_station'))
+    if (stations.length > 0) {
+      return stations[0].name
+    } else {
+      return results[1].name
+    }
   }
 }
