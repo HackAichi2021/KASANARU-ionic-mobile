@@ -36,5 +36,35 @@ export class DestinationMapComponent implements OnInit {
 
   setMarker(event: google.maps.MapMouseEvent) {
     this.markerPosition = event.latLng.toJSON();
+    this.nearbySearch()
+  }
+
+  reverseGeocode() {
+    this.mapService
+      .geocode({ location: this.markerPosition })
+      .then(result => {
+        // this.distLocation = result
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
+  nearbySearch(): void {
+    const placeService = new google.maps.places.PlacesService(
+      this.map.data.getMap()
+    );
+    const request: google.maps.places.PlaceSearchRequest = {
+      location: this.markerPosition,
+      radius: 100
+    };
+    this.mapService
+      .nearbySearch(placeService, request)
+      .then(results => {
+        this.distLocation = results[1].name
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
 }
