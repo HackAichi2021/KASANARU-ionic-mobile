@@ -18,15 +18,15 @@
             <form action="/update" method="post">
                 <div class="flex justify-center content-center my-2">
                     <p class="py-2 px-4">名前</p>
-                    <input type="text" name="name" placeholder="名前" class="input input-bordered">
+                    <input type="text" name="name" placeholder="名前" class="input input-bordered" [(ngModel)]="username">
                 </div>
                 <div class="flex justify-center content-center my-2">
                     <p class="py-2 px-4">年齢</p>
-                    <input type="text" name="age" placeholder="年齢" class="input input-bordered">
+                    <input type="text" name="age" placeholder="年齢" class="input input-bordered" [(ngModel)]="age">
                 </div>
                 <div class="flex justify-center content-center my-2">
-                    <p class="py-2 px-4">属性</p>
-                    <input type="text" name="type" placeholder="属性" class="input input-bordered">
+                    <p class="py-2 px-4">性別</p>
+                    <input type="text" name="type" placeholder="性別" class="input input-bordered" [(ngModel)]="sex">
                 </div>
                 <p class="py-4">興味のあることを選択してください</p>
                 <div class="p-2 card bordered">
@@ -50,7 +50,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-full mt-4">決定</button>
+                <button (click)="update()" type="submit" class="btn btn-primary w-full mt-4">決定</button>
             </form>
         </div>
     </div>
