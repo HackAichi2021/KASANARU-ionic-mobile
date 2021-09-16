@@ -12,6 +12,8 @@ import { Favorite } from '../models/favorite';
 export class UserPage implements OnInit {
 
   private basedUrl = 'https://hackaichi2021.herokuapp.com/';
+
+  // あとで置き換える
   testToken = new Token("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjFlMGRiNTgxLTJiMWYtNDg5Ny1iMzkxLWM2NDgyYTQ4NzU1NCIsImF1dGhvcml6ZWQiOnRydWUsImV4cCI6MTYzMTc4MzY0MCwidXNlcl9pZCI6Mn0.xm5Wdro-DjcdGHUlFRm-L17hodbpsa-hTIrv6HeSh9E", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzIzODc1NDAsInJlZnJlc2hfdXVpZCI6IjYxNThhMjZkLTU2MjgtNGIzMi05YmQzLTI5OGQwYjNiYTc5NSIsInVzZXJfaWQiOjJ9.Ds69R712NC4dhXYKqaK5xB-ZUWEozQPtm0ScFccJAmY")
 
   favorite: Favorite
