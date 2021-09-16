@@ -18,34 +18,94 @@
             <form action="/update" method="post">
                 <div class="flex justify-center content-center my-2">
                     <p class="py-2 px-4">名前</p>
-                    <input type="text" name="name" placeholder="名前" class="input input-bordered" [(ngModel)]="username">
+                    <input [disabled]="true" type="text" name="name" placeholder="名前" class="w-48 input input-bordered"
+                        [(ngModel)]="username">
                 </div>
                 <div class="flex justify-center content-center my-2">
                     <p class="py-2 px-4">年齢</p>
-                    <input type="text" name="age" placeholder="年齢" class="input input-bordered" [(ngModel)]="age">
+                    <input [disabled]="true" type="text" name="age" placeholder="年齢" class="w-48 input input-bordered"
+                        [(ngModel)]="age">
                 </div>
-                <div class="flex justify-center content-center my-2">
+                <div class="flex justify-center content-center my-2" *ngIf="isDataAvailable">
                     <p class="py-2 px-4">性別</p>
-                    <input type="text" name="type" placeholder="性別" class="input input-bordered" [(ngModel)]="sex">
+                    <select [(ngModel)]="favorite.sex" [ngModelOptions]="{standalone: true}"
+                        class="w-48 border rounded shadow">
+                        <option disabled="disabled" [value]="undefined">選択してください</option>
+                        <option [ngValue]="0">男</option>
+                        <option [ngValue]="1">女</option>
+                    </select>
                 </div>
                 <p class="py-4">興味のあることを選択してください</p>
                 <div class="p-2 card bordered">
-                    <div class="form-control">
+                    <div class="form-control" *ngIf="isDataAvailable">
                         <label class="cursor-pointer label">
-                            <input type="checkbox" class="checkbox">
-                            <span class="label-text">映画鑑賞</span>
+                            <input type="checkbox" class="checkbox" [(ngModel)]="favorite.game"
+                                [ngModelOptions]="{standalone: true}" (ngModelChange)="favorite.game = $event ? 1 : 0">
+                            <span class="label-text">ゲーム</span>
                         </label>
                         <label class="cursor-pointer label">
-                            <input type="checkbox" class="checkbox">
+                            <input type="checkbox" class="checkbox" [(ngModel)]="favorite.sport"
+                                [ngModelOptions]="{standalone: true}" (ngModelChange)="favorite.sport = $event ? 1 : 0">
+                            <span class="label-text">スポーツ</span>
+                        </label>
+                        <label class="cursor-pointer label">
+                            <input type="checkbox" class="checkbox" [(ngModel)]="favorite.book"
+                                [ngModelOptions]="{standalone: true}" (ngModelChange)="favorite.book = $event ? 1 : 0">
+                            <span class="label-text">読書</span>
+                        </label>
+                        <label class="cursor-pointer label">
+                            <input type="checkbox" class="checkbox" [(ngModel)]="favorite.travel"
+                                [ngModelOptions]="{standalone: true}"
+                                (ngModelChange)="favorite.travel = $event ? 1 : 0">
+                            <span class="label-text">旅行</span>
+                        </label>
+                        <label class="cursor-pointer label">
+                            <input type="checkbox" class="checkbox" [(ngModel)]="favorite.internet"
+                                [ngModelOptions]="{standalone: true}"
+                                (ngModelChange)="favorite.internet = $event ? 1 : 0">
+                            <span class="label-text">インターネット</span>
+                        </label>
+                        <label class="cursor-pointer label">
+                            <input type="checkbox" class="checkbox" [(ngModel)]="favorite.anime"
+                                [ngModelOptions]="{standalone: true}" (ngModelChange)="favorite.anime = $event ? 1 : 0">
                             <span class="label-text">アニメ</span>
                         </label>
                         <label class="cursor-pointer label">
-                            <input type="checkbox" class="checkbox">
-                            <span class="label-text">勉強</span>
+                            <input type="checkbox" class="checkbox" [(ngModel)]="favorite.movie"
+                                [ngModelOptions]="{standalone: true}" (ngModelChange)="favorite.movie = $event ? 1 : 0">
+                            <span class="label-text">映画</span>
                         </label>
                         <label class="cursor-pointer label">
-                            <input type="checkbox" class="checkbox">
-                            <span class="label-text">読書</span>
+                            <input type="checkbox" class="checkbox" [(ngModel)]="favorite.music"
+                                [ngModelOptions]="{standalone: true}" (ngModelChange)="favorite.music = $event ? 1 : 0">
+                            <span class="label-text">音楽</span>
+                        </label>
+                        <label class="cursor-pointer label">
+                            <input type="checkbox" class="checkbox" [(ngModel)]="favorite.gourmet"
+                                [ngModelOptions]="{standalone: true}"
+                                (ngModelChange)="favorite.gourmet = $event ? 1 : 0">
+                            <span class="label-text">グルメ</span>
+                        </label>
+                        <label class="cursor-pointer label">
+                            <input type="checkbox" class="checkbox" [(ngModel)]="favorite.muscle"
+                                [ngModelOptions]="{standalone: true}"
+                                (ngModelChange)="favorite.muscle = $event ? 1 : 0">
+                            <span class="label-text">筋トレ</span>
+                        </label>
+                        <label class="cursor-pointer label">
+                            <input type="checkbox" class="checkbox" [(ngModel)]="favorite.camp"
+                                [ngModelOptions]="{standalone: true}" (ngModelChange)="favorite.camp = $event ? 1 : 0">
+                            <span class="label-text">キャンプ</span>
+                        </label>
+                        <label class="cursor-pointer label">
+                            <input type="checkbox" class="checkbox" [(ngModel)]="favorite.tv"
+                                [ngModelOptions]="{standalone: true}" (ngModelChange)="favorite.tv = $event ? 1 : 0">
+                            <span class="label-text">テレビ</span>
+                        </label>
+                        <label class="cursor-pointer label">
+                            <input type="checkbox" class="checkbox" [(ngModel)]="favorite.cook"
+                                [ngModelOptions]="{standalone: true}" (ngModelChange)="favorite.cook = $event ? 1 : 0">
+                            <span class="label-text">料理</span>
                         </label>
                     </div>
                 </div>

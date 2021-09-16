@@ -1,18 +1,18 @@
 export class Favorite {
-  sex: number
-  game: number
-  sport: number
-  book: number
-  travel: number
-  internet: number
-  anime: number
-  movie: number
-  music: number
-  gourmet: number
-  muscle: number
-  camp: number
-  tv: number
-  cook: number
+  sex: any
+  game: any
+  sport: any
+  book: any
+  travel: any
+  internet: any
+  anime: any
+  movie: any
+  music: any
+  gourmet: any
+  muscle: any
+  camp: any
+  tv: any
+  cook: any
   constructor(sex: number, game: number, sport: number, book: number, travel: number, internet: number, anime: number, movie: number, music: number, gourmet: number, mucle: number, camp: number, tv: number, cook: number) {
     this.sex = sex
     this.game = game
