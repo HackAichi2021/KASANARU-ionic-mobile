@@ -26,7 +26,7 @@
 
         <h1 class="mt-4 mb-4 text-3xl font-bold">傘の貸し借り</h1>
         <hr class="mt-4 mb-4">
-        <a routerLink="./borrow">
+        <a routerLink="./borrow" (click)="setLend(0)">
             <div class="card card-side bg-primary text-accent-content shadow-md mt-4 mb-4">
                 <hr class="mb-2 bg-white">
                 <figure>
@@ -39,7 +39,7 @@
                 </div>
             </div>
         </a>
-        <a routerLink="./lend">
+        <a routerLink="./lend" (click)="setLend(1)">
             <div class="card card-side bg-secondary text-accent-content shadow-md mt-4 mb-4">
                 <hr class="mb-2 bg-white">
                 <figure>

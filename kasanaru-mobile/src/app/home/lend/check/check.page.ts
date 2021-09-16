@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Store } from '../../../store/store';
 
 @Component({
   selector: 'app-check',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckPage implements OnInit {
 
-  constructor() { }
+  constructor(private httpclient: HttpClient, private store: Store) { }
 
   ngOnInit() {
+  }
+
+  postLendAndBorrow(x: number): void {
+    this.store.setAfterOK(x);
+    // ここで3つの情報が揃ったのでpostする
   }
 
 }
