@@ -10,7 +10,7 @@ import { Store } from '../store/store';
 })
 export class LoginPage implements OnInit {
 
-
+  // この辺はapiの確認とstoreにあるデータ共有の練習に使ったから汚い
   private basedUrl = 'https://hackaichi2021.herokuapp.com/';
   private user = {
     email: 'neko',
@@ -24,18 +24,21 @@ export class LoginPage implements OnInit {
     this.message = this.store.getMessage();
   }
 
+   // get
   getData(): void {
     this.httpclient.get<User>(this.basedUrl).subscribe(res => {
       console.log(res);
     });
   }
 
+  // post
   authData(): void {
     this.httpclient.post<User>(`${this.basedUrl}api/user/register`, this.user).subscribe(res => {
       console.log(res);
     });
   }
 
+  // dataのset
   setMessage(): void {
     this.store.setMessage('change');
     this.message = this.store.getMessage();
