@@ -12,6 +12,7 @@ export class NavigationMapComponent implements OnInit {
   options: google.maps.MapOptions = {
     disableDefaultUI: true
   };
+  // マッチング相手の位置情報をdestinationPositionに入れる
   destinationPosition: google.maps.LatLngLiteral
   currentPosition: google.maps.LatLngLiteral
 
