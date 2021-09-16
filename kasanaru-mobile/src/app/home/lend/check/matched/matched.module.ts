@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { NavigationMapComponent } from 'src/app/components/navigation-map/navigation-map.component';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -13,8 +15,9 @@ import { MatchedPage } from './matched.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    MatchedPageRoutingModule
+    MatchedPageRoutingModule,
+    GoogleMapsModule
   ],
-  declarations: [MatchedPage]
+  declarations: [MatchedPage, NavigationMapComponent]
 })
-export class MatchedPageModule {}
+export class MatchedPageModule { }
