@@ -14,8 +14,8 @@ export class CheckPage implements OnInit {
 
   private basedUrl = 'https://hackaichi2021.herokuapp.com/';
 
-  // あとで置き換える
-  testToken = new Token("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjE2NDM3ZjE1LTBkMDAtNDZjOS1iZjI5LTYzMmU4MzhiMDEwOSIsImF1dGhvcml6ZWQiOnRydWUsImV4cCI6MTYzMTg0MzU0MSwidXNlcl9pZCI6M30.dzxYufEwr48yvUmR1gYAY3C6YsHowY9E-asCaWz8G-w", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzI0NDc0NDEsInJlZnJlc2hfdXVpZCI6ImEzYTFhNjQ5LTdiOWUtNDVkOC05YWQ1LWNmYTRlYjhmOTZkYyIsInVzZXJfaWQiOjN9.wz02B9Ze2Q9mFP9vwmcwtDfsjQIpOdiU_u5zW4Pg5xA")
+  // あとで置き換える(Yamada)
+  testToken = new Token("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6Ijg1YzhhYTc5LWRjMzctNGUxNS1hYmZlLWM2MzRjZTEzZWMxYiIsImF1dGhvcml6ZWQiOnRydWUsImV4cCI6MTYzMTg2MDgyMSwidXNlcl9pZCI6NX0.5w-htDk7tsaOPGu9yMeDhLcO6ITVgQl_wsz8-kSoacw", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzI0NjQ3MjEsInJlZnJlc2hfdXVpZCI6Ijc0MWYxNjFjLWM0YzQtNDZiMC1iZmY3LWE4OTM4ZTAyYWM3NiIsInVzZXJfaWQiOjV9.rOoEGL9cf_Z5ld7KkqkRNGmRpEfXwYFOuAuUCbhUcug")
 
   constructor(private httpclient: HttpClient, private store: Store, private router: Router) { }
 
@@ -31,9 +31,7 @@ export class CheckPage implements OnInit {
     var body = { ...lendAndBorrow, ...this.testToken }
     var headers = new HttpHeaders()
 
-    this.httpclient.post(`${this.basedUrl}api/user/matching`, body, {
-      headers: headers.set('Access-Control-Allow-Origin', '*'),
-    }).subscribe(res => {
+    this.httpclient.post(`${this.basedUrl}api/user/matching`, body).subscribe(res => {
       console.log(res);
       this.router.navigateByUrl('lend_matched');
     });
