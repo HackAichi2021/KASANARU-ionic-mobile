@@ -1,0 +1,12 @@
+.matting-indicator {
+    position: relative;
+    // width: 500px;
+    img {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        &:nth-child(1){
+            top: 30%;
+        }
+    }
+}

@@ -9,13 +9,18 @@
 </ion-header>
 
 <ion-content>
-  <div class="w-full p-4">
-      <a routerLink="../">
+    <div class="flex items-center h-full flex-col p-4">
+        <a routerLink="../" class="w-full">
           <div class="m-2 text-2xl">
               <ion-icon name="arrow-back-outline" class="p-2"></ion-icon>
               <span class="text-base p-2 font-bold">戻る</span>
           </div>
       </a>
       <h1 class="mt-4 mb-4 text-3xl font-bold">マッチング中…</h1>
+      <div class="matting-indicator w-full h-full">
+        <img src="../../../../../assets/loading-gif/Preloader_4.gif" class="w-1/2  m-auto p-1">
+        <img src="../../../../../assets/loading-gif/umbrella.png" class="w-1/2  m-auto p-1">
+      </div>
+
   </div>
 </ion-content>
