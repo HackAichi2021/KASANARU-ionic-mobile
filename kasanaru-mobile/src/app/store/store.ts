@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LendAndBorrow } from '../models/lendAndborrow';
+import { LendAndBorrow } from '../models/lendAndBorrow';
 
 @Injectable({
     providedIn: 'root'

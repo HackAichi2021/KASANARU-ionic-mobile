@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Store } from '../../../store/store';
-import { LendAndBorrow } from 'src/app/models/lendAndborrow';
+import { LendAndBorrow } from 'src/app/models/lendAndBorrow';
 import { Token } from 'src/app/models/token';
 import { Router } from '@angular/router';
 
