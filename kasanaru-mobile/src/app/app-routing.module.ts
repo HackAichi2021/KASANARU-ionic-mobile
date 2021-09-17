@@ -8,11 +8,19 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
+  },
+  {
+    path: 'home/borrow/check/matched',
+    loadChildren: () => import('./home/borrow/check/matched/matched.module').then(m => m.MatchedPageModule)
+  },
+  {
+    path: 'home/lend/check/matched',
+    loadChildren: () => import('./home/lend/check/matched/matched.module').then(m => m.MatchedPageModule)
   },
   {
     path: '',
@@ -26,4 +34,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
