@@ -35,7 +35,7 @@ export class CheckPage implements OnInit {
       headers: headers.set('Access-Control-Allow-Origin', '*'),
     }).subscribe(res => {
       console.log(res);
-      this.router.navigateByUrl('lend_matched');
+      this.router.navigateByUrl('home/lend/check/matched');
     });
   }
 

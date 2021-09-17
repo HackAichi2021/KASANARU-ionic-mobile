@@ -15,11 +15,11 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
   },
   {
-    path: 'borrow_matched',
+    path: 'home/borrow/check/matched',
     loadChildren: () => import('./home/borrow/check/matched/matched.module').then(m => m.MatchedPageModule)
   },
   {
-    path: 'lend_matched',
+    path: 'home/lend/check/matched',
     loadChildren: () => import('./home/lend/check/matched/matched.module').then(m => m.MatchedPageModule)
   },
   {

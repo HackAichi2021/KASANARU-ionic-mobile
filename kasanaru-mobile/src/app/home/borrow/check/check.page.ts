@@ -19,8 +19,7 @@ export class CheckPage implements OnInit {
 
   constructor(private httpclient: HttpClient, private store: Store, private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   postLendAndBorrow(x: number): void {
     this.store.setAfterOK(x);
@@ -35,7 +34,7 @@ export class CheckPage implements OnInit {
       headers: headers.set('Access-Control-Allow-Origin', '*'),
     }).subscribe(res => {
       console.log(res);
-      this.router.navigateByUrl('borrow_matched');
+      this.router.navigateByUrl('home/borrow/check/matched');
     });
   }
 
