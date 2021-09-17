@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Validators } from "@angular/forms";
+import { RouterModule, Router } from "@angular/router";
 import { User } from "../models/user";
 import { Store } from "../store/store";
 
@@ -14,17 +15,16 @@ import { Store } from "../store/store";
 export class RegisterPage implements OnInit {
     private basedUrl = 'https://hackaichi2021.herokuapp.com/';
     registerForm: FormGroup;
-    model: User;
     private message = "Text";
 
     // Input to User Model
-    
-    constructor(private builder: FormBuilder, private http: HttpClient, private store: Store) {
+
+    constructor(private builder: FormBuilder, private http: HttpClient, private store: Store, private router: Router) {
         this.registerForm = this.builder.group({
             email: ["", Validators.required],
             password: ["", Validators.required],
             username: ["", Validators.required],
-            age: ["", Validators.required],    
+            age: ["", Validators.required],
         });
         this.message = this.store.getMessage();
     }
@@ -42,10 +42,12 @@ export class RegisterPage implements OnInit {
         this.http.post<any>(`${this.basedUrl}api/user/register`,
             JSON.stringify(this.registerForm.value)).subscribe(
                 (res) => {
-                    if(res.status == "Success") {
+                    if (res.status == "Success") {
                         console.log("Success!");
                         localStorage.setItem("access_token", res.access_token);
                         localStorage.setItem("refresh_token", res.refresh_token);
+
+                        return this.router.navigate(["/login"]);
                     } else {
                         console.log("Failed");
                     }
