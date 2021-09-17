@@ -1,0 +1,55 @@
+import { NgModule, Component, OnInit } from '@angular/core';
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from "../models/user";
+import { Store } from "../store/store";
+import { RegisterService } from "../services/register.service";
+// import Form
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
+
+@NgModule({
+  imports: [BrowserModule, FormsModule],
+  declarations: [ RegisterPage ],
+  bootstrap: [ RegisterPage ]
+})
+
+@Component({
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
+  providers: [
+    { provide: RegisterService, useClass: RegisterService }
+  ]
+})
+export class RegisterPage implements OnInit {
+  
+  private basedUrl = 'https://hackaichi2021.herokuapp.com/';
+  private user = {
+    email: "test",
+    password: "passphrase",
+    username: "tda",
+    age: 20
+  };
+  private message: string = "neko";
+
+  constructor(private httpClient: HttpClient, private store: Store) {
+    this.message = this.store.getMessage();
+  }
+  
+  // post data
+  authData() : void {
+    
+  }
+
+  // レスポンスされたデータをセットする
+  setMessage(): void {
+    this.store.setMessage("change");
+    this.message = this.store.getMessage();
+     
+  }
+
+  ngOnInit() {
+  }
+
+}
