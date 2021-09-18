@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient }    from '@angular/common/http';
-import { User } from '../models/user';
-import { Store } from '../store/store';
+import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Validators } from "@angular/forms";
+import { RouterModule, Router } from "@angular/router";
+import { User } from "../models/user";
+import { Store } from "../store/store";
 
 @Component({
   selector: 'app-login',
@@ -9,42 +12,61 @@ import { Store } from '../store/store';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
-  // この辺はapiの確認とstoreにあるデータ共有の練習に使ったから汚い
   private basedUrl = 'https://hackaichi2021.herokuapp.com/';
-  private user = {
-    email: 'neko',
-    password: 'dda',
-    username: 'dsa',
-    age: 43
-  };
-  private message = 'neko';
+  loginForm: FormGroup;
+  private message = "Text";
 
-  constructor(private httpclient: HttpClient, private store:  Store){
+  constructor(private builder: FormBuilder, private http: HttpClient,
+    private store: Store, private router: Router) {
+    this.loginForm = this.builder.group({
+      email: ["", Validators.required],
+      password: ["", Validators.required],
+    });
     this.message = this.store.getMessage();
   }
 
-   // get
+  // get
   getData(): void {
-    this.httpclient.get<User>(this.basedUrl).subscribe(res => {
+    this.http.get<User>(this.basedUrl).subscribe(res => {
       console.log(res);
     });
   }
 
   // post
-  authData(): void {
-    this.httpclient.post<User>(`${this.basedUrl}api/user/register`, this.user).subscribe(res => {
-      console.log(res);
-    });
-  }
+  login(): void {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      observe: "response"
+    }
+    this.http.post<any>(`${this.basedUrl}api/user/login`,
+      JSON.stringify(this.loginForm.value)).subscribe(
+        (res) => {
+          console.log(res);
 
+          if (res.status == "Success") {
+            console.log("Success!");
+            localStorage.setItem("access_token", res.access_token);
+            localStorage.setItem("refresh_token", res.refresh_token);
+            localStorage.setItem("username", res.username);
+            localStorage.setItem("age", res.age);
+            this.store.setToken(res.access_token, res.refresh_token)
+            return this.router.navigate(["/home"]);
+          } else {
+            console.log("Failed");
+          }
+        }
+      );
+
+  }
   // dataのset
   setMessage(): void {
     this.store.setMessage('change');
     this.message = this.store.getMessage();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

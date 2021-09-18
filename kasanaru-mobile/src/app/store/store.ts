@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LendAndBorrow } from '../models/lendAndBorrow';
+import { Token } from '../models/token';
 import { YourInfo } from '../models/yourInfo';
 import { Favorite } from '../models/favorite';
 
@@ -9,9 +10,10 @@ import { Favorite } from '../models/favorite';
 export class Store {
     private message = 'hello';
     private lendAndBorrow = new LendAndBorrow(-1, -1, -1, -1);
+    private token: Token
     private yourInfo = new YourInfo(-1,new LendAndBorrow(0,0,0,40), new Favorite(0,0,0,0,0,0,0,0,0,0,0,0,0,0),'tarou');
 
-    constructor() {}
+    constructor() { }
     setMessage(text: string): void {
         this.message = text;
     }
@@ -34,6 +36,12 @@ export class Store {
         return this.lendAndBorrow;
     }
 
+    setToken(accessToken: string, refreshToken: string) {
+        this.token = new Token(accessToken, refreshToken)
+    }
+    getToken(): Token {
+        return this.token
+    }
     setYourInfo(x: YourInfo): void {
         this.yourInfo = x;
     }
