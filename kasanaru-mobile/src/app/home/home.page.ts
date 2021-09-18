@@ -18,7 +18,7 @@ export class HomePage implements OnInit {
 
   getUserName(): void {
     /* ユーザ情報をどこかで取得したらlocalStorageにユーザ名を格納 */
-    this.loginUserName = localStorage.getItem("userName");
+    this.loginUserName = this.store.getUserName();
     console.log(this.loginUserName);
     
   }
