@@ -7,11 +7,13 @@ export class YourInfo {
     info: LendAndBorrow;
     favorite: Favorite;
     username: string;
-    constructor(userId: number, info: LendAndBorrow, favorite: Favorite, username: string) {
+    email: string;
+    constructor(userId: number, info: LendAndBorrow, favorite: Favorite, username: string, email: string) {
         this.userId = userId;
         this.info = info;
         this.favorite = favorite;
         this.username = username;
+        this.email = email;
     }
 
 }
