@@ -19,7 +19,7 @@
         <h1 class="mt-4 mb-4 text-3xl font-bold">マッチングしました！</h1>
         <h1 class="mt-4 mb-4 text-3xl">傘を持っている</h1>
         <div class="flex align-middle">
-            <img src="../../../../../assets/user-icon/user-icon.png" class="w-20 h-20 rounded-full inline-block">
+            <app-gravatar [email]="email"></app-gravatar>
             <h2 class="text-3xl font-bold p-6">{{yourInfo.username}}さん</h2>
         </div>
         <h1 class="mt-4 mb-4 text-2xl">が向かっています<br/>しばらくお待ちください</h1>

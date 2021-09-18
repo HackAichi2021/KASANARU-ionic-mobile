@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
+import { GravatarComponent } from '../../../../components/gravatar/gravatar.component';
+
+
 import { MatchedPageRoutingModule } from './matched-routing.module';
 
 import { MatchedPage } from './matched.page';
@@ -15,6 +18,6 @@ import { MatchedPage } from './matched.page';
     IonicModule,
     MatchedPageRoutingModule
   ],
-  declarations: [MatchedPage]
+  declarations: [MatchedPage, GravatarComponent]
 })
 export class MatchedPageModule {}
