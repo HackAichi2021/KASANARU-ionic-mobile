@@ -40,7 +40,6 @@ export class RegisterPage implements OnInit {
             }),
             observe: "response"
         }
-        console.log(JSON.stringify(this.registerForm.value));
         this.http.post<any>(`${this.basedUrl}api/user/register`,
             JSON.stringify(this.registerForm.value)).subscribe(
                 (res) => {
