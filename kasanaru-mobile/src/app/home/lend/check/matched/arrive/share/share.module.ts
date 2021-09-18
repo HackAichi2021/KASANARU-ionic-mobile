@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { StarRatingModule } from 'ionic5-star-rating';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -13,8 +14,9 @@ import { SharePage } from './share.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    SharePageRoutingModule
+    SharePageRoutingModule,
+    StarRatingModule
   ],
   declarations: [SharePage]
 })
-export class SharePageModule {}
+export class SharePageModule { }

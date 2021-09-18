@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
+import { GravatarComponent } from '../../../../../components/gravatar/gravatar.component';
+
 import { ArrivePageRoutingModule } from './arrive-routing.module';
 
 import { ArrivePage } from './arrive.page';
@@ -15,6 +17,6 @@ import { ArrivePage } from './arrive.page';
     IonicModule,
     ArrivePageRoutingModule
   ],
-  declarations: [ArrivePage]
+  declarations: [ArrivePage, GravatarComponent]
 })
 export class ArrivePageModule {}

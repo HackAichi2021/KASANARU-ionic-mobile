@@ -10,6 +10,7 @@ import { Favorite } from '../../../../../models/favorite';
   styleUrls: ['./arrive.page.scss'],
 })
 export class ArrivePage implements OnInit {
+  email: string = "";
   yourInfo = new YourInfo(-1, new LendAndBorrow(0, 0, 0, 40),
     new Favorite(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0), 'tarou', 0, 0, "exemple@example.com");
   yourFavorite: string[] = [];
@@ -28,6 +29,7 @@ export class ArrivePage implements OnInit {
     if (this.yourInfo.favorite.camp) { this.yourFavorite.push('キャンプ'); }
     if (this.yourInfo.favorite.tv) { this.yourFavorite.push('テレビ'); }
     if (this.yourInfo.favorite.cook) { this.yourFavorite.push('料理'); }
+    this.email = this.yourInfo.email;
   }
 
   ngOnInit() {

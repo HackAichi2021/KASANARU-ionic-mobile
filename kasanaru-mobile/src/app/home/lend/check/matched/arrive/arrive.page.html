@@ -17,7 +17,8 @@
             </div>
         </a>
         <div class="flex align-middle">
-            <img src="../../../../../assets/user-icon/user-icon.png" class="w-20 h-20 rounded-full inline-block">
+            <!-- <img src="../../../../../assets/user-icon/user-icon.png" class="w-20 h-20 rounded-full inline-block"> -->
+            <app-gravatar [email]="email"></app-gravatar>
             <h2 class="text-3xl font-bold p-6">{{yourInfo.username}}さん</h2>
         </div>
         <h1 class="mt-4 mb-2 text-2xl font-bold">とマッチング</h1>
@@ -27,9 +28,6 @@
                 <div class="badge badge-ghost m-2">{{fav}}</div>
             </div>
         </div>
-        <h1 class="mt-2 mb-4 text-2xl font-bold">２人におすすめのお店：</h1>
-        <h1 class="mt-2 mb-4 text-2xl font-bold">☆☆カフェ</h1>
-        <img src="../../../../../assets/map-icon/map-item.png" class="img-responsive object-cover w-full h-40">
         <button type="submit" class="btn btn-primary w-full mt-4" routerLink="./share">解散</button>
     </div>
 </ion-content>
