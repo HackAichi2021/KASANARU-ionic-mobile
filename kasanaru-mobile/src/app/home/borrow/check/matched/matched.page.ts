@@ -9,8 +9,13 @@ import { YourInfo } from '../../../../models/yourInfo';
 })
 export class MatchedPage implements OnInit {
   yourInfo: YourInfo;
+  email: string = "";
   constructor(private store: Store) {
     this.yourInfo = this.store.getYourInfo();
+    console.log(this.email);
+    this.email = this.yourInfo.email;
+    console.log(this.email);
+    console.log("hello")
   }
 
   ngOnInit() {
