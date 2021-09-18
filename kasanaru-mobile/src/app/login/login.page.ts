@@ -52,7 +52,7 @@ export class LoginPage implements OnInit {
             localStorage.setItem("username", res.username);
             localStorage.setItem("age", res.age);
             this.store.setToken(res.access_token, res.refresh_token)
-            return this.router.navigate(["/tabs"]);
+            return this.router.navigate(["/home"]);
           } else {
             console.log("Failed");
           }
