@@ -30,9 +30,7 @@ export class CheckPage implements OnInit {
     var body = { ...lendAndBorrow, ...this.testToken }
     var headers = new HttpHeaders()
 
-    this.httpclient.post(`${this.basedUrl}api/user/matching`, body, {
-      headers: headers.set('Access-Control-Allow-Origin', '*'),
-    }).subscribe(res => {
+    this.httpclient.post(`${this.basedUrl}api/user/matching`, body).subscribe(res => {
       console.log(res);
       this.router.navigateByUrl('home/borrow/check/matched');
     });
