@@ -23,7 +23,7 @@ export class NavigationMapComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.map = new google.maps.Map(document.getElementById("map") as HTMLElement)
+    this.map = new google.maps.Map(document.getElementById("map") as HTMLElement, this.options)
     this.navigation(this.map)
   }
 
@@ -46,5 +46,6 @@ export class NavigationMapComponent implements OnInit {
         directionsRenderer.setDirections(result);
       }
     })
+    new google.maps.Marker({ position: this.destinationPosition, map });
   }
 }
