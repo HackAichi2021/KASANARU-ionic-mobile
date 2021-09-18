@@ -38,6 +38,7 @@ export class UserPage implements OnInit {
       this.age = res.age
       this.email = res.email
       this.isDataAvailable = true
+      localStorage.setItem('userName', this.username);
       console.log(res);
     });
   }
