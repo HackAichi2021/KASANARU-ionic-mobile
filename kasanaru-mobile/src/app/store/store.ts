@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LendAndBorrow } from '../models/lendAndBorrow';
+import { Token } from '../models/token';
 
 @Injectable({
     providedIn: 'root'
@@ -7,8 +8,9 @@ import { LendAndBorrow } from '../models/lendAndBorrow';
 export class Store {
     private message = 'hello';
     private lendAndBorrow = new LendAndBorrow(-1, -1, -1, -1);
+    private token: Token
 
-    constructor() {}
+    constructor() { }
     setMessage(text: string): void {
         this.message = text;
     }
@@ -29,5 +31,12 @@ export class Store {
 
     getLendAndBorrow(): LendAndBorrow {
         return this.lendAndBorrow;
+    }
+
+    setToken(accessToken: string, refreshToken: string) {
+        this.token = new Token(accessToken, refreshToken)
+    }
+    getToken(): Token {
+        return this.token
     }
 }

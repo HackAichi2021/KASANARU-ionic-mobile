@@ -44,14 +44,15 @@ export class LoginPage implements OnInit {
       JSON.stringify(this.loginForm.value)).subscribe(
         (res) => {
           console.log(res);
-          
+
           if (res.status == "Success") {
             console.log("Success!");
             localStorage.setItem("access_token", res.access_token);
             localStorage.setItem("refresh_token", res.refresh_token);
             localStorage.setItem("username", res.username);
             localStorage.setItem("age", res.age);
-            return this.router.navigate(["/home"]);
+            this.store.setToken(res.access_token, res.refresh_token)
+            return this.router.navigate(["/tabs"]);
           } else {
             console.log("Failed");
           }

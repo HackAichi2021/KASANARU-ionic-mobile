@@ -46,7 +46,7 @@ export class RegisterPage implements OnInit {
                         console.log("Success!");
                         localStorage.setItem("access_token", res.access_token);
                         localStorage.setItem("refresh_token", res.refresh_token);
-
+                        this.store.setToken(res.access_token, res.refresh_token)
                         return this.router.navigate(["/login"]);
                     } else {
                         console.log("Failed");

@@ -14,7 +14,8 @@ export class UserPage implements OnInit {
   private basedUrl = 'https://hackaichi2021.herokuapp.com/';
 
   // あとで置き換える
-  testToken = new Token("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjFlMGRiNTgxLTJiMWYtNDg5Ny1iMzkxLWM2NDgyYTQ4NzU1NCIsImF1dGhvcml6ZWQiOnRydWUsImV4cCI6MTYzMTc4MzY0MCwidXNlcl9pZCI6Mn0.xm5Wdro-DjcdGHUlFRm-L17hodbpsa-hTIrv6HeSh9E", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzIzODc1NDAsInJlZnJlc2hfdXVpZCI6IjYxNThhMjZkLTU2MjgtNGIzMi05YmQzLTI5OGQwYjNiYTc5NSIsInVzZXJfaWQiOjJ9.Ds69R712NC4dhXYKqaK5xB-ZUWEozQPtm0ScFccJAmY")
+  // testToken = new Token("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjFlMGRiNTgxLTJiMWYtNDg5Ny1iMzkxLWM2NDgyYTQ4NzU1NCIsImF1dGhvcml6ZWQiOnRydWUsImV4cCI6MTYzMTc4MzY0MCwidXNlcl9pZCI6Mn0.xm5Wdro-DjcdGHUlFRm-L17hodbpsa-hTIrv6HeSh9E", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzIzODc1NDAsInJlZnJlc2hfdXVpZCI6IjYxNThhMjZkLTU2MjgtNGIzMi05YmQzLTI5OGQwYjNiYTc5NSIsInVzZXJfaWQiOjJ9.Ds69R712NC4dhXYKqaK5xB-ZUWEozQPtm0ScFccJAmY")
+  token: Token
 
   favorite: Favorite
   username: string
@@ -26,7 +27,9 @@ export class UserPage implements OnInit {
   constructor(private httpclient: HttpClient, private store: Store) { }
 
   ngOnInit() {
-    this.httpclient.post<any>(`${this.basedUrl}api/user/favorite/get`, this.testToken).subscribe(res => {
+    this.token = this.store.getToken()
+    console.log(this.token)
+    this.httpclient.post<any>(`${this.basedUrl}api/user/favorite/get`, this.token).subscribe(res => {
       var rawdata = res.Favorite
       this.favorite = this.parseFavorite(rawdata)
       this.username = res.username
@@ -37,7 +40,7 @@ export class UserPage implements OnInit {
   }
 
   update() {
-    var body = { ...this.favorite, ...this.testToken }
+    var body = { ...this.favorite, ...this.token }
     this.httpclient.post(`${this.basedUrl}api/user/update`, body).subscribe(res => {
       console.log(res);
     });
