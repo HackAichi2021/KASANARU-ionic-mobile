@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content>
-    <div class="w-full p-4">
+    <div class="w-full h-full p-4">
         <a routerLink="../">
             <div class="m-2 text-2xl">
                 <ion-icon name="arrow-back-outline" class="p-2"></ion-icon>
@@ -17,12 +17,12 @@
             </div>
         </a>
         <h1 class="mt-4 mb-4 text-3xl font-bold">マッチングしました！</h1>
+        <app-navigation-map (latlng)="latlng"></app-navigation-map>
         <div class="flex align-middle">
-            <img src="../../../../../assets/user-icon/user-icon.png" class="w-20 h-20 rounded-full inline-block">
+            <app-gravatar [email]="email"></app-gravatar>
             <h2 class="text-3xl font-bold p-6">{{yourInfo.username}}さん</h2>
         </div>
         <h1 class="mt-4 mb-4 text-2xl font-bold">を迎えに行きましょう</h1>
-        <img src="../../../../../assets/map-icon/map-item.png" class="img-responsive">
         <button type="submit" class="btn btn-primary w-full mt-4" routerLink="./arrive">到着</button>
     </div>
 </ion-content>

@@ -18,18 +18,14 @@
         </a>
         <div class="flex align-middle">
             <img src="../../../../../assets/user-icon/user-icon.png" class="w-20 h-20 rounded-full inline-block">
-            <h2 class="text-3xl font-bold p-6">○○さん</h2>
+            <h2 class="text-3xl font-bold p-6">{{yourInfo.username}}さん</h2>
         </div>
         <h1 class="mt-4 mb-2 text-2xl font-bold">とマッチング</h1>
         <h1 class="mt-2 mb-4 text-2xl font-bold">共通の話題：</h1>
         <div class="w-full flex flex-wrap justify-center">
-            <div class="badge badge-ghost m-2">アニメ</div>
-            <div class="badge badge-ghost m-2">アニメ</div>
-            <div class="badge badge-ghost m-2">アニメ</div>
-            <div class="badge badge-ghost m-2">アニメ</div>
-            <div class="badge badge-ghost m-2">アニメ</div>
-            <div class="badge badge-ghost m-2">アニメ</div>
-            <div class="badge badge-ghost m-2">アニメ</div>
+            <div *ngFor='let fav of yourFavorite'>
+                <div class="badge badge-ghost m-2">{{fav}}</div>
+            </div>
         </div>
         <h1 class="mt-2 mb-4 text-2xl font-bold">２人におすすめのお店：</h1>
         <h1 class="mt-2 mb-4 text-2xl font-bold">☆☆カフェ</h1>

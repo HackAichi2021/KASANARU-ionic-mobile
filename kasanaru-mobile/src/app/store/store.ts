@@ -11,7 +11,8 @@ export class Store {
     private message = 'hello';
     private lendAndBorrow = new LendAndBorrow(-1, -1, -1, -1);
     private token: Token
-    private yourInfo = new YourInfo(-1,new LendAndBorrow(0,0,0,40), new Favorite(0,0,0,0,0,0,0,0,0,0,0,0,0,0),'tarou');
+    private yourInfo = new YourInfo(-1, new LendAndBorrow(0, 0, 0, 40),
+        new Favorite(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0), 'tarou', 0, 0, "exemple@example.com");
 
     constructor() { }
     setMessage(text: string): void {
@@ -24,10 +25,15 @@ export class Store {
     setLend(x: number): void {
         this.lendAndBorrow.lend = x;
     }
+
     setLocation(latitude: number, longitude: number): void {
         this.lendAndBorrow.latitude = latitude;
         this.lendAndBorrow.longitude = longitude;
     }
+    getLocation(): google.maps.LatLngLiteral {
+        return { lat: this.lendAndBorrow.latitude, lng: this.lendAndBorrow.longitude }
+    }
+
     setAfterOK(x: number): void {
         this.lendAndBorrow.after_arrival = x;
     }
