@@ -55,4 +55,11 @@ export class Store {
         return this.yourInfo;
     }
 
+    setUserName(x: string): void {
+        this.yourInfo.username = x;
+    }
+    getUserName(): string {
+        return this.yourInfo.username;
+    }
+
 }

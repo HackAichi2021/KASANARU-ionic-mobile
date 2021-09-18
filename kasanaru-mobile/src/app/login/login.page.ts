@@ -47,7 +47,8 @@ export class LoginPage implements OnInit {
 
           if (res.status == "Success") {
             console.log("Success!");
-            this.store.setToken(res.access_token, res.refresh_token)
+            this.store.setToken(res.access_token, res.refresh_token);
+            this.store.setUserName(res.username);
             return this.router.navigate(["/home"]);
           } else {
             console.log("Failed");
