@@ -17,7 +17,7 @@
             </div>
         </a>
         <h1 class="mt-4 mb-4 text-3xl font-bold">マッチングしました！</h1>
-        <app-navigation-map></app-navigation-map>
+        <app-navigation-map (latlng)="latlng"></app-navigation-map>
         <div class="flex align-middle">
             <img src="../../../../../assets/user-icon/user-icon.png" class="w-20 h-20 rounded-full inline-block">
             <h2 class="text-3xl font-bold p-6">{{yourInfo.username}}さん</h2>

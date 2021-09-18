@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { GoogleMap } from '@angular/google-maps';
+import { Component, OnInit, OnChanges, ViewChild, Input } from '@angular/core';
+import { Store } from 'src/app/store/store';
 
 @Component({
   selector: 'app-navigation-map',
@@ -7,7 +7,7 @@ import { GoogleMap } from '@angular/google-maps';
   styleUrls: ['./navigation-map.component.scss'],
 })
 export class NavigationMapComponent implements OnInit {
-  @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
+  // @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
 
   options: google.maps.MapOptions = {
     disableDefaultUI: true
@@ -15,28 +15,22 @@ export class NavigationMapComponent implements OnInit {
   // マッチング相手の位置情報をdestinationPositionに入れる
   destinationPosition: google.maps.LatLngLiteral
   currentPosition: google.maps.LatLngLiteral
+  map: google.maps.Map
 
-  constructor() { }
+  constructor(private store: Store) {
+    this.destinationPosition = this.store.getYourInfo().latlng
+    this.currentPosition = this.store.getLocation()
+  }
 
   ngOnInit() {
-    this.setCurrentPosition()
-  }
-
-  setCurrentPosition() {
-    // 現在位置を取得
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(position => {
-        this.currentPosition = { lat: position.coords.latitude, lng: position.coords.longitude }
-        this.map.googleMap.setCenter(this.currentPosition)
-      })
-    }
-  }
-
-  update() {
-    this.navigation(this.map.googleMap)
+    this.map = new google.maps.Map(document.getElementById("map") as HTMLElement)
+    this.navigation(this.map)
   }
 
   navigation(map: google.maps.Map) {
+    console.log(this.destinationPosition)
+    console.log(this.currentPosition)
+
     var directionsService = new google.maps.DirectionsService()
     var directionsRenderer = new google.maps.DirectionsRenderer()
     directionsRenderer.setMap(map)
