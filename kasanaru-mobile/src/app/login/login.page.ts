@@ -47,10 +47,6 @@ export class LoginPage implements OnInit {
 
           if (res.status == "Success") {
             console.log("Success!");
-            localStorage.setItem("access_token", res.access_token);
-            localStorage.setItem("refresh_token", res.refresh_token);
-            localStorage.setItem("username", res.username);
-            localStorage.setItem("age", res.age);
             this.store.setToken(res.access_token, res.refresh_token)
             return this.router.navigate(["/home"]);
           } else {
