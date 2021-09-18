@@ -53,7 +53,7 @@ export class CheckPage implements OnInit {
       .post<any>(`${this.basedUrl}api/user/matching`, body)
       .subscribe((res) => {
         console.log(res);
-        this.store.setYourInfo(new YourInfo(res.user_id, this.parseLendAndBorrow(res.Info), this.parseFavorite(res.Favorite), res.username, res.Info.latitude, res.Info.longitude, res.Info.email));
+        this.store.setYourInfo(new YourInfo(res.user_id, this.parseLendAndBorrow(res.Info), this.parseFavorite(res.Favorite), res.username, res.Info.latitude, res.Info.longitude, res.email));
         this.router.navigateByUrl('home/lend/check/matched');
       });
   }
