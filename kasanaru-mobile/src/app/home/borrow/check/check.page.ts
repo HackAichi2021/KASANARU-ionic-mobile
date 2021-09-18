@@ -25,7 +25,10 @@ export class CheckPage implements OnInit {
     private httpclient: HttpClient,
     private store: Store,
     private router: Router
-  ) { }
+  ) {
+    this.router.navigateByUrl('home/borrow/check/matching');
+    this.postLendAndBorrow(1)
+  }
 
   ngOnInit() { }
 
