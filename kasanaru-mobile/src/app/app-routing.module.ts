@@ -8,6 +8,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: '',
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
@@ -22,12 +26,11 @@ const routes: Routes = [
   {
     path: 'home/lend/check/matched',
     loadChildren: () => import('./home/lend/check/matched/matched.module').then(m => m.MatchedPageModule)
-  },
+  },/*
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
-  },
-
+  },*/
 ];
 @NgModule({
   imports: [
