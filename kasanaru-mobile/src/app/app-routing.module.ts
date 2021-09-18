@@ -27,6 +27,14 @@ const routes: Routes = [
     path: 'home/lend/check/matched',
     loadChildren: () => import('./home/lend/check/matched/matched.module').then(m => m.MatchedPageModule)
   },
+  {
+    path: 'home/borrow/check/matching',
+    loadChildren: () => import('./home/borrow/check/matching/matching.module').then(m => m.MatchingPageModule)
+  },
+  {
+    path: 'home/lend/check/matching',
+    loadChildren: () => import('./home/lend/check/matching/matching.module').then(m => m.MatchingPageModule)
+  },
 ];
 @NgModule({
   imports: [
