@@ -41,7 +41,6 @@ export class CheckPage implements OnInit {
 
   postLendAndBorrow(x: number): void {
     this.testToken = this.store.getToken();
-    console.log(this.testToken);
     this.store.setAfterOK(x);
     // ここで3つの情報が揃ったのでpostする
     console.log(this.store.getLendAndBorrow());
