@@ -22,12 +22,12 @@
             <h2 class="text-3xl font-bold p-6">{{yourInfo.username}}さん</h2>
         </div>
         <h1 class="mt-4 mb-2 text-2xl font-bold">とマッチング</h1>
-        <h1 class="mt-2 mb-4 text-2xl font-bold">共通の話題：</h1>
+        <h1 class="mt-2 mb-4 text-2xl font-bold">興味のあること：</h1>
         <div class="w-full flex flex-wrap justify-center">
             <div *ngFor='let fav of yourFavorite'>
                 <div class="badge badge-ghost m-2">{{fav}}</div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary w-full mt-4" routerLink="./share">解散</button>
+        <button type="submit" class="btn btn-primary w-full mt-4" routerLink="./share">目的地についた！</button>
     </div>
 </ion-content>
