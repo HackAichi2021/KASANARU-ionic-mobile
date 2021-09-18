@@ -9,8 +9,11 @@ import { YourInfo } from '../../../../models/yourInfo';
 })
 export class MatchedPage implements OnInit {
   yourInfo: YourInfo;
+  latlng: google.maps.LatLngLiteral
   constructor(private store: Store) {
     this.yourInfo = this.store.getYourInfo();
+    this.latlng = this.yourInfo.latlng
+    console.log(this.latlng)
   }
 
   ngOnInit() {
