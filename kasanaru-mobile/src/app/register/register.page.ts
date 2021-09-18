@@ -14,6 +14,7 @@ import { Store } from "../store/store";
 
 export class RegisterPage implements OnInit {
     private basedUrl = 'https://hackaichi2021.herokuapp.com/';
+
     registerForm: FormGroup;
     private message = "Text";
 
