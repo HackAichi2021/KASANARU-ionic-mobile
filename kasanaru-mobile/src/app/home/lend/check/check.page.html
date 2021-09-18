@@ -18,8 +18,8 @@
       </a>
       <h1 class="mt-4 mb-4 text-3xl font-bold">目的地に着いたあと<br/>時間が</h1>
       <div class="w-80 m-auto">
-          <button type="submit" class="btn btn-primary w-full mt-4" routerLink="./matching">ある</button>
-          <button type="submit" class="btn btn-secondary w-full mt-4" routerLink="./matching">ない</button>    
+          <button type="submit" class="btn btn-primary w-full mt-4" routerLink="./matching" (click)="postLendAndBorrow(1)">ある</button>
+          <button type="submit" class="btn btn-secondary w-full mt-4" routerLink="./matching" (click)="postLendAndBorrow(0)">ない</button>    
       </div>
   </div>
 </ion-content>

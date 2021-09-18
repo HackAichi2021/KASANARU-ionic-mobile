@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { GravatarComponent } from '../components/gravatar/gravatar.component';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -15,6 +16,6 @@ import { UserPage } from './user.page';
     IonicModule,
     UserPageRoutingModule
   ],
-  declarations: [UserPage]
+  declarations: [UserPage, GravatarComponent]
 })
-export class UserPageModule {}
+export class UserPageModule { }

@@ -13,8 +13,9 @@
         <h1 class="mt-4 mb-4 text-3xl font-bold">ユーザ情報</h1>
         <hr class="mt-4 mb-4">
         <div class="flex items-center flex-col">
-            <img class="my-4 mx-auto w-24 h-24 rounded-full border border-gray-400 border-" style="border-width: 2px;"
-                src="../../assets/user-icon/user-icon.png">
+            <!-- <img class="my-4 mx-auto w-24 h-24 rounded-full border border-gray-400 border-" style="border-width: 2px;"
+                src="../../assets/user-icon/user-icon.png"> -->
+            <app-gravatar [email]="email"></app-gravatar>
             <form action="/update" method="post">
                 <div class="flex justify-center content-center my-2">
                     <p class="py-2 px-4">名前</p>

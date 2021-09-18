@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '../store/store';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  public loginUserName : string;
+  
+  constructor(private store: Store) { }
 
+  setLend(x: number): void {
+    return this.store.setLend(x);
+  }
+
+  getUserName(): void {
+    /* ユーザ情報をどこかで取得したらlocalStorageにユーザ名を格納 */
+    this.loginUserName = localStorage.getItem("userName");
+    console.log(this.loginUserName);
+    
+  }
   ngOnInit() {
+    this.getUserName();
   }
 
 }
+

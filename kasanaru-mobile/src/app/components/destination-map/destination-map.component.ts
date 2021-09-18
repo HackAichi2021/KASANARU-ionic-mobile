@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GoogleMap } from '@angular/google-maps';
 import { MapService } from 'src/app/services/map.service';
+import { Store } from '../../store/store';
 
 @Component({
   selector: 'app-destination-map',
@@ -13,10 +14,11 @@ export class DestinationMapComponent implements OnInit {
   options: google.maps.MapOptions = {
     disableDefaultUI: true
   };
+  currentPosition: google.maps.LatLngLiteral
   markerPosition: google.maps.LatLngLiteral
   distLocation: string = ''
 
-  constructor(private mapService: MapService) { }
+  constructor(private mapService: MapService, private store: Store) { }
 
   ngOnInit() {
     this.setCurrentPosition();
@@ -26,6 +28,7 @@ export class DestinationMapComponent implements OnInit {
     // 現在位置を取得
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
+        this.store.setLocation(position.coords.latitude, position.coords.longitude);
         this.map.googleMap.setCenter({
           lat: position.coords.latitude,
           lng: position.coords.longitude

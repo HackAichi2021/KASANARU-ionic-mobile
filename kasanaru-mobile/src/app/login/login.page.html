@@ -5,14 +5,14 @@
                 <div class="card-body">
                     <img src="../../assets/splash-banner/KASANARU-banner.png" class="w-60 m-auto p-1">
                     <h1 class="text-3xl font-bold text-center">ログイン</h1>
-                    <form action="/login" method="post">
+                    <form [formGroup]="loginForm" (ngSubmit)="login()">
                         <p class="pt-2">Email</p>
-                        <input type="text" name="mail" placeholder="email" class="input input-bordered w-full">
+                        <input type="email" formControlName="email" placeholder="email" class="input input-bordered w-full" required>
                         <p class="pt-2">パスワード</p>
-                        <input type="password" placeholder="パスワード" name="password" class="input input-bordered w-full">
+                        <input type="password" formControlName="password" placeholder="パスワード"  class="input input-bordered w-full" required>
                         <br>
                         <div class="justify-end card-actions space-x-2">
-                            <button type="submit" class="btn btn-primary p-0 m-0 mt-2 w-full" routerLink="/home">ログイン</button>
+                            <button type="submit" class="btn btn-primary p-0 m-0 mt-2 w-full">ログイン</button>
                             <button class="btn btn-secondary p-0 m-0 mt-4 w-full" routerLink="/register">新規登録</button>
                         </div>
                     </form>
