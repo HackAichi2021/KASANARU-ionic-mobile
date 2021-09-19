@@ -8,17 +8,23 @@
                     <!-- Set Form Group -->
                     <form [formGroup]="registerForm" (ngSubmit)="register()">
                         <p class="pt-2">Email</p>
-                        <input type="email" formControlName="email" placeholder="email" class="input input-bordered w-full" required>
+                        <input type="email" formControlName="email" placeholder="email"
+                            class="input input-bordered w-full" required>
                         <p class="pt-2">パスワード</p>
-                        <input type="password" formControlName="password" placeholder="パスワード"  class="input input-bordered w-full" required>
+                        <input type="password" formControlName="password" placeholder="パスワード"
+                            class="input input-bordered w-full" required>
                         <p class="pt-2">ユーザ名</p>
-                        <input type="text" formControlName="username" placeholder="ユーザ名" class="input input-bordered w-full" required>
+                        <input type="text" formControlName="username" placeholder="ユーザ名"
+                            class="input input-bordered w-full" required>
                         <p class="pt-2">年齢</p>
-                        <input type="number" formControlName="age" placeholder="年齢" class="input input-bordered w-full" required>
+                        <input type="number" formControlName="age" placeholder="年齢" class="input input-bordered w-full"
+                            required>
                         <br>
                         <div class="justify-end card-actions space-x-2">
-                            <button type="submit" value="register" class="btn btn-secondary p-0 m-0 mt-2 w-full">新規登録</button>
-                            <button class="btn btn-primary p-0 m-0 mt-4 w-full" routerLink="/login">ログイン</button>
+                            <button type="submit" value="register"
+                                class="btn bg-red-400 hover:bg-red-500 p-0 m-0 mt-2 w-full">新規登録</button>
+                            <button class="btn bg-blue-500 hover:bg-blue-600 p-0 m-0 mt-4 w-full"
+                                routerLink="/login">ログイン</button>
                         </div>
                     </form>
                 </div>
